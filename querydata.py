@@ -4,6 +4,7 @@ import requests
 import types
 import json
 from response_transfer import getvales
+from collections import Iterable
 
 
 url="http://www.gscloud.cn/search/query"
@@ -33,6 +34,7 @@ params= {
               }
 r=requests.post(url,data=params,headers=headers) #请求响应结果到r
 r1=r.text #以str方式查看response结果
+print(isinstance(r1, Iterable))
 r2=json.loads(r1)#把对象转换成一个dict
 r3=eval(r1)#另一种方式把对象转黄成一个dict
 # print(r1)
